@@ -1,0 +1,15 @@
+{
+    "name": "rajin/mycast2",
+    "authors": [
+        {
+            "name": "drajin",
+            "email": "drajin@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "app\\": "./"
+        }
+    },
+    "require": {}
+}
