@@ -2,14 +2,14 @@
 
 //class Connection
 //{
-//    public static function make($config)
+//    public static function make($config.php)
 //    {
 //        try {
 //            return new PDO(
-//                $config['connection'].';dbname='.$config['name'],
-//                $config['username'],
-//                $config['password'],
-//                $config['options']
+//                $config.php['connection'].';dbname='.$config.php['name'],
+//                $config.php['username'],
+//                $config.php['password'],
+//                $config.php['options']
 //            );
 //        } catch (PDOException $e) {
 //            die($e->getMessage());

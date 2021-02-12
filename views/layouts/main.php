@@ -38,8 +38,10 @@
         </ul>
     </div>
 </nav>
+<div class="content">
+    {{content}}
+</div>
 
-{{content}}
 
 <!-- Optional JavaScript; choose one of the two! -->
 

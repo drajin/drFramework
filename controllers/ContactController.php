@@ -11,7 +11,7 @@ class ContactController extends Controller
 
     public function contact() {
         $params = [
-            'Future' => 'You will send your shit here!'
+            'Future' => 'You will send your messages here!'
         ];
 
         return $this->render('index', $params);
