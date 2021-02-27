@@ -2,6 +2,7 @@
 
 namespace app\core;
 
+
 class Router
 {
     public Request $request;
@@ -76,10 +77,14 @@ class Router
         foreach ($params as $key => $value) {
             $$key = $value;
         }
+//        echo '<pre>';    Check sta je poslato
+//        var_dump($params);
+//        echo '</pre>';
 
         ob_start(); //starts output cashing
         include_once Application::$ROOT_PATH."/views/$views.view.php";
         return ob_get_clean(); //returns buffered values
+
     }
 
 

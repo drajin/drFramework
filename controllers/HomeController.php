@@ -7,15 +7,20 @@
 
     class HomeController extends Controller
     {
+        public function __construct()
+        {
+            //$this->postModel = new Post();
+        }
 
         public function index() {
-            $params = [
-                'name' => 'Dejan',
-                'last name' => 'Rajin'
-            ];
 
-            return $this->render('index', $params);
-            //return 'Hellou!';
+           // $posts = $this->postModel->getPosts();
+//             $params = [
+//                    'poozdraaavv!!!' => $posts
+//            ];
+
+            return $this->render('index');
+
         }
 
     }

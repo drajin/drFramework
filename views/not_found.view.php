@@ -1,1 +1,1 @@
-<h1>Uh, oh, something went wrong! Go back Bobo!</h1>
+<h1>Uh, oh, something went wrong!</h1>
