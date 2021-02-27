@@ -4,25 +4,23 @@
 
     use app\core\Application;
     use app\core\Request;
-    use app\models\Post;
 
     class HomeController extends Controller
     {
         public function __construct()
         {
-            $this->postModel = new Post();
+            //$this->postModel = new Post();
         }
 
         public function index() {
 
-            $posts = $this->postModel->getPosts();
+           // $posts = $this->postModel->getPosts();
+//             $params = [
+//                    'poozdraaavv!!!' => $posts
+//            ];
 
-             $params = [
-                    'posts' => $posts
-            ];
+            return $this->render('index');
 
-            return $this->render('index', $params);
-            //return 'Hellou!';
         }
 
     }
