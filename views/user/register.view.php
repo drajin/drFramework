@@ -1,4 +1,5 @@
-<?php  use app\core\Application;?>
+<?php  use app\core\Application; ?>
+
 <!--Flash messages-->
 <div class="container">
     <div class="alert success">
@@ -9,7 +10,7 @@
         <?php endif; ?>
     </div>
 </div>
-</div>
+<!--Flash messages end-->
 
 <section class="section section-on-footer" data-background="images/backgrounds/bg-dots.png">
     <div class="container">

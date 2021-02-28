@@ -1,4 +1,21 @@
+<?php  use app\core\Application; ?>
+<?php
+        if(Application::$app->session->isUserLoggedIn()){
+                Application::$app->response->redirect('/dashboard');
+                }
+?>
 
+<!--Flash messages-->
+<div class="container">
+    <div class="alert success">
+        <?php if (Application::$app->session->getFlashMsg('success')) : ;?>
+            <div class="alert alert-success">
+                <?php echo Application::$app->session->getFlashMsg('success') ?>
+            </div>
+        <?php endif; ?>
+    </div>
+</div>
+<!--Flash messages end-->
 
 <section class="section section-on-footer" data-background="images/backgrounds/bg-dots.png">
     <div class="container">

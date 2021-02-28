@@ -83,14 +83,6 @@ class UserController extends Controller
         Application::$app->response->redirect('login');
     }
 
-    public function isUserLoggedIn()
-    {
-        if(isset($_SESSION['user_id'])) {
-            return true;
-        } else {
-            return false;
-        }
-    }
 
 
 

@@ -8,6 +8,8 @@ use app\controllers\HomeController;
 use app\controllers\ContactController;
 use app\controllers\AboutController;
 use app\controllers\UserController;
+use app\controllers\BlogController;
+use app\controllers\PostsController;
 
 //App root
 define('ROOT', dirname(dirname(__FILE__)));
@@ -33,8 +35,13 @@ $app->router->post('/login', [UserController::class, 'login_sbm']);
 
 $app->router->get('/logout', [UserController::class, 'logout']);
 
-
 $app->router->get('/about', [AboutController::class, 'about']);
+
+$app->router->get('/blog', [BlogController::class, 'index']);
+$app->router->get('/show', [BlogController::class, 'show']);
+
+$app->router->get('/dashboard', [PostsController::class, 'dashboard']);
+$app->router->get('/create', [PostsController::class, 'create']);
 
 $app->router->get('/contact', [ContactController::class, 'contact']);
 

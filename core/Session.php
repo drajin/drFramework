@@ -49,4 +49,13 @@ class Session
         $_SESSION[self::FLASH_KEY] = $flashMessages;
     }
 
+    public function isUserLoggedIn()
+    {
+        if(isset($_SESSION['user_id'])) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
 }

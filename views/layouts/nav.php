@@ -20,6 +20,11 @@
                 <li class="nav-item">
                     <a class="nav-link" href="contact">Contact</a>
                 </li>
+                <?php if(isset($_SESSION['user_name'])) : ?>
+                <li class="nav-item">
+                    <a class="nav-link text-danger" href="dashboard">Your Dashboard</a>
+                </li>
+                <?php endif; ?>
             </ul>
 
             <?php if(isset($_SESSION['user_name'])) : ?>

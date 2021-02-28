@@ -23,7 +23,7 @@
         <p class="mb-0 text-light">Copyright ©<script>
                 var CurrentYear = new Date().getFullYear()
                 document.write(CurrentYear)
-            </script> a theme by <a href="https://themefisher.com">themefisher.com</a></p>
+            </script><a href="https://github.com/drajin"> Dejan Rajin</a></p>
     </div>
 </footer>
 <!-- /footer -->

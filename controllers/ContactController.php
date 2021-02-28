@@ -10,11 +10,9 @@ class ContactController extends Controller
 {
 
     public function contact() {
-        $params = [
-            'Future' => 'You will send your messages here!'
-        ];
 
-        return $this->render('index', $params);
+        return $this->render('contact');
     }
+
 
 }
