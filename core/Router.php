@@ -17,6 +17,7 @@ class Router
         $this->response = $response;
     }
 
+    //ovde
     public function get($url, $callback)
     {
         $this->routes['get'][$url] = $callback;
@@ -36,6 +37,7 @@ class Router
 //            echo '<pre>';
 //            var_dump($callback);
 //            echo '</pre>';
+//            exit;
         if($callback === false) {
             $this->response->setStatusCode(404);
             //return 'not found';

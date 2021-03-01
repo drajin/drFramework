@@ -22,7 +22,7 @@ class User extends Model
     public string $pass_confirm_err;
 
 
-    public function validation()
+    public function validation_register()
     {
         // Validate Name
         if(empty($this->name)) {

@@ -4,7 +4,7 @@
 <div class="page-header row no-gutters py-4">
     <div class="col-12 col-sm-4 text-center text-sm-left mb-0">
         <span class="text-uppercase page-subtitle">Blog Posts</span>
-        <h3 class="page-title">Add New Post</h3>
+        <h3 class="page-title">Edit Post</h3>
     </div>
 </div>
 <!-- End Page Header -->
@@ -18,7 +18,7 @@
                 <form class="add-new-post" action="/create" class="row" method="post">
 
                     <input class="form-control form-control-lg mb-3 <?php echo (!empty($title_err)) ? 'is-invalid' : '' ?>"
-                           type="text" name="title" placeholder="Your Post Title" value="<?php echo (!empty($title)) ? $title : ''; ?>">
+                           type="text" name="title" placeholder="Your Post Title" value="<?= $post->title ?>">
 
                     <div class="invalid-feedback">
                         <?php echo (!empty($title_err)) ? $title_err : '' ?>
@@ -26,14 +26,14 @@
 
                     <textarea class="form-control form-control-lg mb-3 <?php echo (!empty($body_err)) ? 'is-invalid' : ''; ?>"
                               rows="9" name="body" placeholder="Your Post Text"
-                    ><?php echo (!empty($body)) ? $body : ''; ?></textarea>
+                    ><?= $post->body ?></textarea>
 
                     <div class="invalid-feedback">
                         <?php echo (!empty($body_err)) ? $body_err : '' ?>
                     </div>
 
                     <button class="btn btn-sm btn-accent ml-auto" type="submit" value="submit">
-                        <i class="material-icons">file_copy</i> Publish</button>
+                        <i class="material-icons">file_copy</i> Update</button>
                     <div id="editor-container" class="add-new-post__editor mb-1"></div>
                 </form>
 

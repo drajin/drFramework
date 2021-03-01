@@ -30,7 +30,7 @@
                         <h4 class="card-title"><a class="text-dark" href="blog-single.html"><?= $post->title ?></a>
                         </h4>
                         <p class="cars-text"><?= $post->body ?></p>
-                        <a href="show?id=<?php echo $post->id ?>" class="btn btn-xs btn-primary">Read More</a>
+                        <a href="show?id=<?php echo $post->postId  ?>" class="btn btn-xs btn-primary">Read More</a>
                     </div>
                 </article>
             </div>

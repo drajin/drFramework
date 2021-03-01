@@ -36,7 +36,7 @@
                         <td><?= $post->name; ?></td>
                         <td><?= $post->postCreated; ?></td>
                         <td><a href="view" class="btn btn-secondary">View</a></td>
-                        <td><a href="edit" class="btn btn-secondary">Edit</a></td>
+                        <td><a href="edit?id=<?= $post->postId ?>" class="btn btn-secondary">Edit</a></td>
                         <td><a href="delete" class="btn btn-secondary">Delete</a></td>
                     </tr>
                     <?php endforeach; ?>

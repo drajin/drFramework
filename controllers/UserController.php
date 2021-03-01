@@ -33,8 +33,8 @@ class UserController extends Controller
         $user_model = new User();
         if ($request->isPost()) {
             $user_model->loadData($request->getBody());
-            $user_model->validation();
-            if ($user_model->validation() === true) {
+            $user_model->validation_register();
+            if ($user_model->validation_register() === true) {
                 $user_model->password = password_hash($user_model->password, PASSWORD_DEFAULT);
                 if ($user_model->register()) {
                     Application::$app->session->setFlashMsg('success', 'Done, now log in, step inside!');

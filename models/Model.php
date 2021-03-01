@@ -3,6 +3,8 @@
 namespace app\models;
 
 
+use app\core\Application;
+
 abstract class Model
 {
     public function loadData($data)
@@ -12,6 +14,16 @@ abstract class Model
                 $this->{$key} = $value;
             }
         }
+    }
+
+    public function find_by_id($table, $id)
+    {
+        Application::$app->db->query("SELECT * FROM $table WHERE id = :id");
+        Application::$app->db->bind(':id', $id);
+
+        $row = Application::$app->db->single();
+        return $row;
+
     }
 //    public const RULE_REQUIRED = 'required'; ZURA 2
 //    public const RULE_EMAIL = 'email';
