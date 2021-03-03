@@ -8,6 +8,19 @@
     </div>
 </div>
 <!-- End Page Header -->
+
+<?php use app\core\Application; ?>
+<!--Flash messages-->
+<div class="container">
+    <div class="alert success">
+        <?php if (Application::$app->session->getFlashMsg('success')) : ;?>
+            <div class="alert alert-success">
+                <?php echo Application::$app->session->getFlashMsg('success') ?>
+            </div>
+        <?php endif; ?>
+    </div>
+</div>
+<!--Flash messages end-->
 <div class="row">
     <div class="col-lg-9 col-md-12">
         <!-- Add New Post Form -->

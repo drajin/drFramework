@@ -8,6 +8,21 @@
     </div>
 </div>
 <!-- End Page Header -->
+
+<?php use app\core\Application; ?>
+<!--Flash messages-->
+<div class="container">
+    <div class="alert success">
+        <?php if (Application::$app->session->getFlashMsg('success')) : ;?>
+            <div class="alert alert-success">
+                <?php echo Application::$app->session->getFlashMsg('success') ?>
+            </div>
+        <?php endif; ?>
+    </div>
+</div>
+<!--Flash messages end-->
+
+
 <div class="row">
     <div class="col-lg-9 col-md-12">
         <!-- Add New Post Form -->
@@ -15,7 +30,7 @@
             <div class="card-body">
 
 
-                <form class="add-new-post" action="/create" class="row" method="post">
+                <form class="update-post" action="/edit?id=<?= $post->id ?>" class="row" method="post">
 
                     <input class="form-control form-control-lg mb-3 <?php echo (!empty($title_err)) ? 'is-invalid' : '' ?>"
                            type="text" name="title" placeholder="Your Post Title" value="<?= $post->title ?>">
@@ -33,13 +48,9 @@
                     </div>
 
                     <button class="btn btn-sm btn-accent ml-auto" type="submit" value="submit">
-                        <i class="material-icons">file_copy</i> Update</button>
+                        <i class="material-icons">update</i> Update</button>
                     <div id="editor-container" class="add-new-post__editor mb-1"></div>
                 </form>
-
-
-
-
             </div>
         </div>
         <!-- / Add New Post Form -->
@@ -54,35 +65,34 @@
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item p-3">
                         <span class="d-flex mb-2">
-                          <i class="material-icons mr-1">flag</i>
-                          <strong class="mr-1">Status:</strong> Draft
-                          <a class="ml-auto" href="#">Edit</a>
+                          <i class="material-icons mr-1">add</i>
+                          <strong class="mr-1"><a href="create">Add new Post</a></strong>
                         </span>
                         <span class="d-flex mb-2">
-                          <i class="material-icons mr-1">visibility</i>
-                          <strong class="mr-1">Visibility:</strong>
-                          <strong class="text-success">Public</strong>
-                          <a class="ml-auto" href="#">Edit</a>
+                          <i class="material-icons mr-1">preview</i>
+                          <strong class="mr-1"><a href="show?id=<?= $post->id ?>">View on a front Page</a></strong>
                         </span>
                         <span class="d-flex mb-2">
-                          <i class="material-icons mr-1">calendar_today</i>
-                          <strong class="mr-1">Schedule:</strong> Now
-                          <a class="ml-auto" href="#">Edit</a>
-                        </span>
-                        <span class="d-flex">
-                          <i class="material-icons mr-1">score</i>
-                          <strong class="mr-1">Readability:</strong>
-                          <strong class="text-warning">Ok</strong>
+                        <form method="post" action="/delete?id=<?= $post->postId ?>" >
+                                <input type="hidden" name="_method" value="delete">
+                                <div id="operations">
+                                    <i class="material-icons mr-1">delete_forever</i>
+                                    <input class="btn btn-sm btn-outline-danger mr-1" type="submit" name="commit" value="Remove Post" />
+                                </div>
+                        </form>
+
+
                         </span>
                     </li>
                     <li class="list-group-item d-flex px-3">
-                        <button class="btn btn-sm btn-outline-accent">
-                            <i class="material-icons">save</i> Save Draft</button>
-
+                        <a href="dashboard"><button class="btn btn-sm btn-outline-accent">
+                            <i class="material-icons">cancel</i> Cancel</button>
+                        </a>
                     </li>
                 </ul>
             </div>
         </div>
+
         <!-- / Post Overview -->
 
     </div>

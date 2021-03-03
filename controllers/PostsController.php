@@ -47,13 +47,16 @@ class PostsController extends Controller
             $this->postModel->validationCreate();
             if ($this->postModel->validationCreate() === true) {
                 $this->postModel->create();
-                Application::$app->session->setFlashMsg('succeed','Published!');
-                Application::$app->response->redirect('/blog');
+                Application::$app->session->setFlashMsg('success','Probno ovdeeee!');
+
+                Application::$app->response->redirect('dashboard');
+                exit();
+
             } else {
                 $this->setLayout('dashboard');
                 return $this->render('posts/create', $this->postModel);
             }
-            exit;
+            //exit; ?? ne znam cemu ovaj exit
         }
     }
 
@@ -72,8 +75,10 @@ class PostsController extends Controller
         return $this->render('posts/edit', $params);
     }
 
-    public function edit_sbm(Request $request, $id)
+    public function edit_sbm(Request $request)
     {
+        // sanitize what if no id, what if no result
+        $id = $_GET['id'];
 
         if ($request->isPost()) {
             $this->postModel->loadData($request->getBody());
@@ -81,11 +86,13 @@ class PostsController extends Controller
             if ($this->postModel->validationCreate() === true) {
 
                 if($this->postModel->edit($id)){
-                    Application::$app->session->setFlashMsg('succeed','Published!');
+                    Application::$app->session->setFlashMsg('success','Updejted!');
                     Application::$app->response->redirect('/dashboard');
+                    exit();
                 } else {
-                    Application::$app->session->setFlashMsg('error','Error!');
+                    Application::$app->session->setFlashMsg('success','Error!');
                     Application::$app->response->redirect('/create');
+                    exit;
                 }
 
             } else {
@@ -94,6 +101,42 @@ class PostsController extends Controller
             }
             exit;
         }
+    }
+
+    public function delete(Request $request)
+    {
+        // sanitize what if no id, what if no result
+        $id = $_GET['id'];
+
+        if ($request->isPost()) {
+            if($this->postModel->delete($id)){
+                Application::$app->session->setFlashMsg('success','Post removed!');
+                Application::$app->response->redirect('/dashboard');
+                exit();
+
+            } else Application::$app->session->setFlashMsg('success','Something went wrong!');
+
+
+        }
+
+
+
+    }
+
+    public function show()
+    {
+        // sanitize what if no id, what if no result
+        $id = $_GET['id'];
+        $post = $this->postModel->find_by_id('posts', $id);
+        $user = $this->postModel->find_by_id('users', $post->user_id);
+
+        $params = [
+            'post' => $post,
+            'user' => $user
+        ];
+
+        $this->setLayout('dashboard');
+        return $this->render('posts/show', $params);
     }
 
 

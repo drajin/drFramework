@@ -1,3 +1,5 @@
+<?php use app\core\Application; ?>
+
 <!doctype html>
 <html class="no-js h-100" lang="en">
 <head>

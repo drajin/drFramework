@@ -1,10 +1,11 @@
-
-<!-- page title -->
+<?php echo("<pre>"); ?>
+<?php var_dump($comments);  ?>
+<?php echo("</pre>"); ?>
 <section class="page-title bg-primary position-relative">
     <div class="container">
         <div class="row">
             <div class="col-12 text-center">
-                <h1 class="text-white font-tertiary">Blogs <?php //echo $params['id']; ?></h1>
+                <h1 class="text-white font-tertiary">Blogs <?php  ?></h1>
             </div>
         </div>
     </div>
@@ -23,12 +24,12 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
-                <h3 class="font-tertiary mb-5"><?= $post->title; ?></h3>
-                <p class="font-secondary">Published on <?= $post->created_at ?>, 2017 by <span class="text-primary"><?= $user->name ?></span
+                <h3 class="font-tertiary mb-5"><?php echo $post->title; ?></h3>
+                <p class="font-secondary">Published on <?php echo $post->created_at ?> by <span class="text-primary"><?php echo $user->name ?></span
                         class="text-primary"> on <span>UX design</span></p>
 
                 <div class="content">
-                    <?= $post->body ?>
+                    <?php echo $post->body ?>
                 </div>
 
             </div>
@@ -40,38 +41,20 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
-                <h4 class="font-weight-bold mb-3">Comments 03</h4>
+                <h4 class="font-weight-bold mb-3">Comments <?php echo count($comments) ?></h4>
                 <div class="bg-gray p-5 mb-4">
+                    <?php foreach($comments as $comment) : ?>
                     <div class="media border-bottom py-4">
-                        <img src="images/user-1.jpg" class="img-fluid align-self-start rounded-circle mr-3" alt="">
                         <div class="media-body">
-                            <h5 class="mt-0">Carole Marvin.</h5>
-                            <p>15 january 2015 At 10:30 pm</p>
-                            <p>Ne erat velit invidunt his. Eum in dicta veniam interesset, harum fuisset te nam ea cu lupta
-                                definitionem.</p>
-                            <a href="#" class="btn btn-transparent btn-sm pl-0">Reply</a>
-                            <div class="media my-5">
-                                <img src="images/user-2.jpg" class="img-fluid align-self-start rounded-circle mr-3" alt="">
-                                <div class="media-body">
-                                    <h5 class="mt-0">Jaquan Rolfson.</h5>
-                                    <p>15 january 2015 At 10:30 pm</p>
-                                    <p>Ne erat velit invidunt his. Eum in dicta veniam interesset, harum fuisset te nam ea cu lupta
-                                        definitionem.</p>
-                                    <a href="#" class="btn btn-transparent btn-sm pl-0">Reply</a>
-                                </div>
-                            </div>
+                            <h5 class="mt-0"><?php echo $comment->author; ?></h5>
+                            <p><?php echo $comment->created_at; ?></p>
+                            <p><?php echo $comment->body; ?></p>
+
+
                         </div>
                     </div>
-                    <div class="media py-4">
-                        <img src="images/user-3.jpg" class="img-fluid align-self-start rounded-circle mr-3" alt="">
-                        <div class="media-body">
-                            <h5 class="mt-0">Bruce Bernier.</h5>
-                            <p>15 january 2015 At 10:30 pm</p>
-                            <p>Ne erat velit invidunt his. Eum in dicta veniam interesset, harum fuisset te nam ea cu lupta
-                                definitionem.</p>
-                            <a href="#" class="btn btn-transparent btn-sm pl-0">Reply</a>
-                        </div>
-                    </div>
+                    <?php endforeach; ?>
+
                 </div>
                 <h4 class="font-weight-bold mb-3 border-bottom pb-3">Leave a Comment</h4>
                 <form action="#" class="row">

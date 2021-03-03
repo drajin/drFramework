@@ -2,7 +2,7 @@
 <aside class="main-sidebar col-12 col-md-3 col-lg-2 px-0">
     <div class="main-navbar">
         <nav class="navbar align-items-stretch navbar-light bg-white flex-md-nowrap border-bottom p-0">
-            <a class="navbar-brand w-100 mr-0" href="#" style="line-height: 25px;">
+            <a class="navbar-brand w-100 mr-0" href="/dashboard" style="line-height: 25px;">
                 <div class="d-table m-auto">
                     <img id="main-logo" class="d-inline-block align-top mr-1" style="max-width: 25px;" src="images/shards-dashboards-logo.svg" alt="Shards Dashboard">
                     <span class="d-none d-md-inline ml-1">Dejans Dashboard</span>
@@ -26,8 +26,14 @@
         <ul class="nav flex-column">
             <li class="nav-item">
                 <a class="nav-link " href="dashboard">
-                    <i class="material-icons">edit</i>
-                    <span>Blog Dashboard</span>
+                    <i class="material-icons">home</i>
+                    <span>Dashboard Index</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link " target="_blank" href="/blog">
+                    <i class="material-icons">pageview</i>
+                    <span>View front Page</span>
                 </a>
             </li>
             <li class="nav-item">
@@ -37,7 +43,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link " href="add-new-post.html">
+                <a class="nav-link " href="/create">
                     <i class="material-icons">vertical_split</i>
                     <span>Add New Post</span>
                 </a>

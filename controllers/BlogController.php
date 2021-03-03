@@ -5,6 +5,7 @@ namespace app\controllers;
 use app\models\Post;
 use app\models\User;  //accessing method thought Post?
 use app\core\Application;
+use app\models\Comment;
 
 
 class BlogController extends Controller
@@ -17,6 +18,7 @@ class BlogController extends Controller
     {
         $this->postModel = new Post();
         $this->userModel = new User();
+        $this->commentModel = new Comment();
     }
 
 
@@ -35,16 +37,23 @@ class BlogController extends Controller
 
         // sanitize
         $id = $_GET['id'];
-        $post = $this->postModel->find_by_id('posts', $id);
 
+        $post = $this->postModel->find_by_id('posts', $id);
         $user = $this->userModel->find_by_id('users', $post->user_id);
+        $comments = $this->commentModel->getComments($id);
 
         $params = [
             'post' => $post,
-            'user' => $user
+            'user' => $user,
+            'comments' => $comments
         ];
 
         return $this->render('blog/show', $params);
+    }
+
+    public function comment_sbm()
+    {
+
     }
 
 

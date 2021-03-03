@@ -25,26 +25,31 @@ $app = new Application(dirname(__DIR__), $config); // setting new App obj and ro
 
 $app->router->get('/', [HomeController::class, 'index']);
 
+//Register
 $app->router->get('/register', [UserController::class, 'register']);
 $app->router->post('/register', [UserController::class, 'register_sbm']);
 
+//Login
 $app->router->get('/login', [UserController::class, 'login']);
 $app->router->post('/login', [UserController::class, 'login_sbm']);
-
 $app->router->get('/logout', [UserController::class, 'logout']);
 
+//About
 $app->router->get('/about', [AboutController::class, 'about']);
 
+//Blog
 $app->router->get('/blog', [BlogController::class, 'index']);
 $app->router->get('/show', [BlogController::class, 'show']);
-$app->router->get('/edit/new', [BlogController::class, 'show']);
-$app->router->get('/delete/{id}', [BlogController::class, 'show']);
+$app->router->post('/show', [BlogController::class, 'comment_sbm']);
 
+//CRUD Post
 $app->router->get('/dashboard', [PostsController::class, 'dashboard']);
 $app->router->get('/create', [PostsController::class, 'create']);
 $app->router->post('/create', [PostsController::class, 'create_sbm']);
 $app->router->get('/edit', [PostsController::class, 'edit']);
 $app->router->post('/edit', [PostsController::class, 'edit_sbm']);
+$app->router->get('/view', [PostsController::class, 'show']);
+$app->router->post('/delete', [PostsController::class, 'delete']);
 
 $app->router->get('/contact', [ContactController::class, 'contact']);
 

@@ -93,6 +93,19 @@ class Post extends Model
 
     }
 
+    public function delete($id)
+    {
+        Application::$app->db->query('DELETE FROM posts WHERE id = :id');
+        Application::$app->db->bind(':id', $id);
+
+        if(Application::$app->db->execute()) {
+            return true;
+        } else {
+            return false;
+        }
+
+    }
+
 
 
 

@@ -8,6 +8,21 @@
         </div>
     </div>
     <!-- End Page Header -->
+
+
+<?php use app\core\Application; ?>
+
+    <!--Flash messages-->
+
+    <div class="container">
+            <?php if (Application::$app->session->getFlashMsg('success')) : ?>
+                <div class="alert alert-success">
+                    <?php echo Application::$app->session->getFlashMsg('success'); ?>
+                    <?php Application::$app->session->destroyMsg(); ?>
+                </div>
+            <?php endif; ?>
+    <!--Flash messages end-->
+
 <!-- Default Light Table -->
 <div class="row">
     <div class="col">
@@ -35,9 +50,16 @@
                         <td><?= $post->title; ?></td>
                         <td><?= $post->name; ?></td>
                         <td><?= $post->postCreated; ?></td>
-                        <td><a href="view" class="btn btn-secondary">View</a></td>
+                        <td><a href="view?id=<?= $post->postId ?>" class="btn btn-secondary">View</a></td>
                         <td><a href="edit?id=<?= $post->postId ?>" class="btn btn-secondary">Edit</a></td>
-                        <td><a href="delete" class="btn btn-secondary">Delete</a></td>
+                        <td>
+                            <form method="post" action="/delete?id=<?= $post->postId ?>" >
+                                <input type="hidden" name="_method" value="delete">
+                                <div id="operations">
+                                    <input type="submit" name="commit" class="btn btn-secondary" value="Delete" />
+                                </div>
+                            </form>
+                        </td>
                     </tr>
                     <?php endforeach; ?>
                     </tbody>
