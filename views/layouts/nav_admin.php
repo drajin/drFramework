@@ -5,7 +5,7 @@
             <a class="navbar-brand w-100 mr-0" href="/dashboard" style="line-height: 25px;">
                 <div class="d-table m-auto">
                     <img id="main-logo" class="d-inline-block align-top mr-1" style="max-width: 25px;" src="images/shards-dashboards-logo.svg" alt="Shards Dashboard">
-                    <span class="d-none d-md-inline ml-1">Dejans Dashboard</span>
+                    <span class="d-none d-md-inline ml-1"><?php echo $_SESSION['user_name'] ?> Dashboard</span>
                 </div>
             </a>
             <a class="toggle-sidebar d-sm-inline d-md-none d-lg-none">
@@ -31,33 +31,21 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link " target="_blank" href="/blog">
-                    <i class="material-icons">pageview</i>
-                    <span>View front Page</span>
-                </a>
-            </li>
-            <li class="nav-item">
                 <a class="nav-link " href="create">
                     <i class="material-icons">note_add</i>
                     <span>Add New Post</span>
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link " href="/create">
-                    <i class="material-icons">vertical_split</i>
-                    <span>Add New Post</span>
+                <a class="nav-link " href="comments">
+                    <i class="material-icons">comment</i>
+                    <span>Remove Comments</span>
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link " href="form-components.html">
-                    <i class="material-icons">view_module</i>
-                    <span>Forms &amp; Components</span>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link active" href="tables.html">
-                    <i class="material-icons">table_chart</i>
-                    <span>Tables</span>
+                <a class="nav-link " target="_blank" href="/blog">
+                    <i class="material-icons">pageview</i>
+                    <span>View front Page</span>
                 </a>
             </li>
             <li class="nav-item">

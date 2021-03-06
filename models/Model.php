@@ -5,26 +5,25 @@ namespace app\models;
 
 use app\core\Application;
 
-abstract class Model
-{
-    public function loadData($data)
+    abstract class Model
     {
-        foreach($data as $key => $value){
-            if(property_exists($this, $key)) {
-                $this->{$key} = $value;
+        public function loadData($data)
+        {
+            foreach($data as $key => $value){
+                if(property_exists($this, $key)) {
+                    $this->{$key} = $value;
+                }
             }
         }
-    }
 
-    public function find_by_id($table, $id)
-    {
-        Application::$app->db->query("SELECT * FROM $table WHERE id = :id");
-        Application::$app->db->bind(':id', $id);
+        public function find_by_id($table, $id)
+        {
+            Application::$app->db->query("SELECT * FROM $table WHERE id = :id");
+            Application::$app->db->bind(':id', $id);
 
-        $row = Application::$app->db->single();
-        return $row;
+            return Application::$app->db->single();
 
-    }
+        }
 //    public const RULE_REQUIRED = 'required'; ZURA 2
 //    public const RULE_EMAIL = 'email';
 //    public const RULE_MIN = 'min';

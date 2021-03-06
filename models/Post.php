@@ -31,8 +31,8 @@ class Post extends Model
                                 ');
 
         //returns more then one row
-        $results = Application::$app->db->resultSet();
-        return $results;
+        return Application::$app->db->resultSet();
+
     }
 
     public function create()
@@ -53,12 +53,12 @@ class Post extends Model
     }
 
 
-    public function edit($id)
+    public function edit()
     {
         Application::$app->db->query('UPDATE posts SET title = :title, body = :body WHERE id = :id');
         Application::$app->db->bind(':title', $this->title);
         Application::$app->db->bind(':body', $this->body);
-        Application::$app->db->bind(':id', $id);
+        Application::$app->db->bind(':id', $this->id);
 
 
         if(Application::$app->db->execute()) {
@@ -70,18 +70,16 @@ class Post extends Model
 
     }
 
-    public function validationCreate()
+    public function validatePost()
     {
         if(!isset($this->title) || trim($this->title) === '') {
             $this->title_err = 'Please add a title';
         }
         // Validate Body
         if(!isset($this->body) || trim($this->body) === '') {
-            $this->body_err = 'Body can\'t be empty.';
-        }
-
-        if(str_word_count($this->body) < 2) {
-                $this->body_err = 'Come on, write at least one sentence!';
+            $this->body_err = 'Post can\'t be empty.';
+        } elseif(str_word_count($this->body) < 2) {
+            $this->body_err = 'Come on, write at least one sentence!';
         }
 
         // Make sure there are no errors

@@ -6,11 +6,16 @@ namespace app\controllers;
 use app\core\Application;
 use app\core\Request;
 use app\models\Post;
+use app\models\Comment;
 
 class PostsController extends Controller
 {
 
     public Post $postModel;
+    /**
+     * @var Comment
+     */
+    private Comment $commentModel;
 
     public function __construct()
     {
@@ -19,24 +24,27 @@ class PostsController extends Controller
         }
 
         $this->postModel = new Post();
+        $this->commentModel = new Comment();
 
     }
 
-    public function dashboard()
+    public function index()
     {
         $posts = $this->postModel->getPosts();
+        $comments = $this->commentModel->getComments();
 
         $params = [
             'posts' => $posts,
+            'comments' => $comments
         ];
 
-        $this->setLayout('dashboard');
+        $this->setLayout('index_admin');
         return $this->render('posts/index', $params);
     }
 
     public function create()
     {
-        $this->setLayout('dashboard');
+        $this->setLayout('index_admin');
         return $this->render('posts/create');
     }
 
@@ -44,16 +52,15 @@ class PostsController extends Controller
     {
         if ($request->isPost()) {
             $this->postModel->loadData($request->getBody());
-            $this->postModel->validationCreate();
-            if ($this->postModel->validationCreate() === true) {
+            $this->postModel->validatePost();
+            if ($this->postModel->validatePost() === true) {
                 $this->postModel->create();
-                Application::$app->session->setFlashMsg('success','Probno ovdeeee!');
-
+                Application::$app->session->setFlashMsg('success','Post published!');
                 Application::$app->response->redirect('dashboard');
                 exit();
 
             } else {
-                $this->setLayout('dashboard');
+                $this->setLayout('index_admin');
                 return $this->render('posts/create', $this->postModel);
             }
             //exit; ?? ne znam cemu ovaj exit
@@ -63,7 +70,7 @@ class PostsController extends Controller
     public function edit()
     {
 
-        $this->setLayout('dashboard');
+
         // sanitize
         $id = $_GET['id'];
         $post = $this->postModel->find_by_id('posts', $id);
@@ -72,20 +79,24 @@ class PostsController extends Controller
             'post' => $post
         ];
 
+        $this->setLayout('index_admin');
         return $this->render('posts/edit', $params);
     }
 
     public function edit_sbm(Request $request)
     {
         // sanitize what if no id, what if no result
-        $id = $_GET['id'];
+        $this->postModel->id = $_GET['id'];
 
         if ($request->isPost()) {
             $this->postModel->loadData($request->getBody());
-            $this->postModel->validationCreate();
-            if ($this->postModel->validationCreate() === true) {
-
-                if($this->postModel->edit($id)){
+            $this->postModel->validatePost();
+            if ($this->postModel->validatePost() === true) {
+//                echo("<pre>");
+//                var_dump($this->postModel);
+//                echo("</pre>");
+//                exit;
+                if($this->postModel->edit($this->postModel)){
                     Application::$app->session->setFlashMsg('success','Updejted!');
                     Application::$app->response->redirect('/dashboard');
                     exit();
@@ -96,8 +107,14 @@ class PostsController extends Controller
                 }
 
             } else {
-                $this->setLayout('dashboard');
-                return $this->render('posts/create', $this->postModel);
+
+                // dali moze da se posalje post[id] = $id ???????
+
+                $params = [
+                    'post' => $this->postModel
+                ];
+                $this->setLayout('index_admin');
+                return $this->render('posts/edit', $params);
             }
             exit;
         }
@@ -111,10 +128,10 @@ class PostsController extends Controller
         if ($request->isPost()) {
             if($this->postModel->delete($id)){
                 Application::$app->session->setFlashMsg('success','Post removed!');
-                Application::$app->response->redirect('/dashboard');
+                return $this->index();
                 exit();
 
-            } else Application::$app->session->setFlashMsg('success','Something went wrong!');
+            } else Application::$app->session->setFlashMsg('success','Delete error!');
 
 
         }
@@ -135,7 +152,7 @@ class PostsController extends Controller
             'user' => $user
         ];
 
-        $this->setLayout('dashboard');
+        $this->setLayout('index_admin');
         return $this->render('posts/show', $params);
     }
 

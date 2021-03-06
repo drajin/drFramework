@@ -1,6 +1,4 @@
-<?php echo("<pre>"); ?>
-<?php var_dump($comments);  ?>
-<?php echo("</pre>"); ?>
+
 <section class="page-title bg-primary position-relative">
     <div class="container">
         <div class="row">
@@ -41,12 +39,12 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
-                <h4 class="font-weight-bold mb-3">Comments <?php echo count($comments) ?></h4>
+<!--                <h4 class="font-weight-bold mb-3">Comments --><?php //echo count($comments) ?><!--</h4>-->
                 <div class="bg-gray p-5 mb-4">
                     <?php foreach($comments as $comment) : ?>
                     <div class="media border-bottom py-4">
                         <div class="media-body">
-                            <h5 class="mt-0"><?php echo $comment->author; ?></h5>
+                            <h5 class="mt-0"><?php echo $comment->first_name . ' '. $comment->last_name; ?></h5>
                             <p><?php echo $comment->created_at; ?></p>
                             <p><?php echo $comment->body; ?></p>
 
@@ -57,17 +55,41 @@
 
                 </div>
                 <h4 class="font-weight-bold mb-3 border-bottom pb-3">Leave a Comment</h4>
-                <form action="#" class="row">
+
+
+<!--                Comment Form-->
+                <form action="/show?id=<?php echo $post->id; ?>" class="row" method="post">
                     <div class="col-md-6">
-                        <input type="text" class="form-control mb-3" placeholder="First Name" name="fname" id="fname">
-                        <input type="text" class="form-control mb-3" placeholder="Last Name" name="lname" id="lname">
-                        <input type="text" class="form-control mb-3" placeholder="Email *" name="mail" id="mail">
+
+
+
+                        <input type="text"  placeholder="First Name" name="first_name" value="<?php echo (!empty($comment_new->first_name)) ? $comment_new->first_name : ''; ?>"
+                               class="form-control mb-3 <?php echo (!empty($comment_new->first_name_err)) ? 'is-invalid' : '' ?>">
+                        <div class="invalid-feedback">
+                            <?php echo (!empty($comment_new->first_name_err)) ? $comment_new->first_name_err : '' ?>
+                        </div>
+                        <input type="text"  placeholder="Last Name" name="last_name" value="<?php echo (!empty($comment_new->last_name)) ? $comment_new->last_name : ''; ?>"
+                               class="form-control mb-3 <?php echo (!empty($comment_new->last_name_err)) ? 'is-invalid' : '' ?>">
+                        <div class="invalid-feedback">
+                            <?php echo (!empty($comment_new->last_name_err)) ? $comment_new->last_name_err : '' ?>
+                        </div>
+                        <input type="email"  placeholder="Email *" name="email" value="<?php echo (!empty($comment_new->email)) ? $comment_new->email : ''; ?>"
+                               class="form-control mb-3 <?php echo (!empty($comment_new->email_err)) ? 'is-invalid' : '' ?>">
+                        <div class="invalid-feedback">
+                            <?php echo (!empty($comment_new->email_err)) ? $comment_new->email_err : '' ?>
+                        </div>
                     </div>
                     <div class="col-md-6">
-                        <textarea name="comment" id="comment" placeholder="Message" class="form-control mb-4"></textarea>
+                        <textarea name="body" id="body" placeholder="Message" class="form-control mb-4
+                        <?php echo (!empty($comment_new->body_err)) ? 'is-invalid' : ''; ?>"></textarea>
+                        <div class="invalid-feedback">
+                            <?php echo (!empty($comment_new->body_err)) ? $comment_new->body_err : '' ?>
+                        </div>
                         <button type="submit" class="btn btn-primary w-100">Send Message</button>
                     </div>
+
                 </form>
+
             </div>
         </div>
     </div>
@@ -131,24 +153,30 @@
             <div class="col-12 text-center">
                 <h2 class="section-title">Contact Info</h2>
             </div>
+
+
             <div class="col-lg-8 mx-auto">
                 <div class="bg-white rounded text-center p-5 shadow-down">
                     <h4 class="mb-80">Contact Form</h4>
+
                     <form action="#" class="row">
                         <div class="col-md-6">
                             <input type="text" id="name" name="name" placeholder="Full Name" class="form-control px-0 mb-4">
-                        </div>
                         <div class="col-md-6">
                             <input type="email" id="email" name="email" placeholder="Email Address" class="form-control px-0 mb-4">
                         </div>
-                        <div class="col-12">
-              <textarea name="message" id="message" class="form-control px-0 mb-4"
-                        placeholder="Type Message Here"></textarea>
+                            <div class="col-12">
+                            <textarea name="message" id="message" class="form-control px-0 mb-4"
+                                placeholder="Type Message Here"></textarea>
                         </div>
                         <div class="col-lg-6 col-10 mx-auto">
                             <button class="btn btn-primary w-100">send</button>
                         </div>
                     </form>
+
+
+
+
                 </div>
             </div>
         </div>

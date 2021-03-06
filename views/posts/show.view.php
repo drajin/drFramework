@@ -30,14 +30,14 @@
         <div class="col-lg-6 col-sm-12 mb-4">
             <div class="card card-small card-post mb-4">
                 <div class="card-body">
-                    <h5 class="card-title"><?=  $post->title ?></h5>
-                    <p class="card-text text-muted"><?=  $post->body ?></p>
+                    <h5 class="card-title"><?php echo   $post->title ?></h5>
+                    <p class="card-text text-muted"><?php echo   $post->body ?></p>
                 </div>
                 <div class="card-footer border-top d-flex">
                     <div class="card-post__author d-flex">
-                        Written by <?=  $user->name ?></a>
+                        Written by <?php echo $user->name ?></a>
                         <div class="d-flex flex-column justify-content-center ml-3">
-                            <small class="text-muted"><?=  $post->created_at ?></a></small>
+                            <small class="text-muted"><?php echo   $post->created_at ?></a></small>
                         </div>
                     </div>
 

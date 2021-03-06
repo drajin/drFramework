@@ -10,6 +10,7 @@ use app\controllers\AboutController;
 use app\controllers\UserController;
 use app\controllers\BlogController;
 use app\controllers\PostsController;
+use app\controllers\CommentsController;
 
 //App root
 define('ROOT', dirname(dirname(__FILE__)));
@@ -40,16 +41,24 @@ $app->router->get('/about', [AboutController::class, 'about']);
 //Blog
 $app->router->get('/blog', [BlogController::class, 'index']);
 $app->router->get('/show', [BlogController::class, 'show']);
-$app->router->post('/show', [BlogController::class, 'comment_sbm']);
+
+//Comments Frontend
+$app->router->post('/show', [CommentsController::class, 'comment_sbm']);
 
 //CRUD Post
-$app->router->get('/dashboard', [PostsController::class, 'dashboard']);
+$app->router->get('/dashboard', [PostsController::class, 'index']);
 $app->router->get('/create', [PostsController::class, 'create']);
 $app->router->post('/create', [PostsController::class, 'create_sbm']);
 $app->router->get('/edit', [PostsController::class, 'edit']);
 $app->router->post('/edit', [PostsController::class, 'edit_sbm']);
 $app->router->get('/view', [PostsController::class, 'show']);
 $app->router->post('/delete', [PostsController::class, 'delete']);
+
+
+//Comments Backend
+$app->router->get('/comments', [CommentsController::class, 'show']);
+$app->router->post('/delete_comment', [CommentsController::class, 'delete']);
+
 
 $app->router->get('/contact', [ContactController::class, 'contact']);
 

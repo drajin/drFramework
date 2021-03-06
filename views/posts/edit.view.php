@@ -1,5 +1,3 @@
-
-
 <!-- Page Header -->
 <div class="page-header row no-gutters py-4">
     <div class="col-12 col-sm-4 text-center text-sm-left mb-0">
@@ -30,21 +28,21 @@
             <div class="card-body">
 
 
-                <form class="update-post" action="/edit?id=<?= $post->id ?>" class="row" method="post">
+                <form class="update-post" action="/edit?id=<?php echo $post->id ?>" class="row" method="post">
 
-                    <input class="form-control form-control-lg mb-3 <?php echo (!empty($title_err)) ? 'is-invalid' : '' ?>"
-                           type="text" name="title" placeholder="Your Post Title" value="<?= $post->title ?>">
+                    <input class="form-control form-control-lg mb-3 <?php echo (!empty($post->title_err)) ? 'is-invalid' : '' ?>"
+                           type="text" name="title" placeholder="Your Post Title" value="<?php echo $post->title ?>">
 
                     <div class="invalid-feedback">
-                        <?php echo (!empty($title_err)) ? $title_err : '' ?>
+                        <?php echo (!empty($post->title_err)) ? $post->title_err : '' ?>
                     </div>
 
-                    <textarea class="form-control form-control-lg mb-3 <?php echo (!empty($body_err)) ? 'is-invalid' : ''; ?>"
+                    <textarea class="form-control form-control-lg mb-3 <?php echo (!empty($post->body_err)) ? 'is-invalid' : ''; ?>"
                               rows="9" name="body" placeholder="Your Post Text"
-                    ><?= $post->body ?></textarea>
+                    ><?php echo $post->body ?></textarea>
 
                     <div class="invalid-feedback">
-                        <?php echo (!empty($body_err)) ? $body_err : '' ?>
+                        <?php echo (!empty($post->body_err)) ? $post->body_err : '' ?>
                     </div>
 
                     <button class="btn btn-sm btn-accent ml-auto" type="submit" value="submit">
@@ -70,10 +68,10 @@
                         </span>
                         <span class="d-flex mb-2">
                           <i class="material-icons mr-1">preview</i>
-                          <strong class="mr-1"><a href="show?id=<?= $post->id ?>">View on a front Page</a></strong>
+                          <strong class="mr-1"><a href="show?id=<?php echo $post->postId ?>">View on a front Page</a></strong>
                         </span>
                         <span class="d-flex mb-2">
-                        <form method="post" action="/delete?id=<?= $post->postId ?>" >
+                        <form method="post" action="/delete?id=<?php echo $post->postId ?>" >
                                 <input type="hidden" name="_method" value="delete">
                                 <div id="operations">
                                     <i class="material-icons mr-1">delete_forever</i>
