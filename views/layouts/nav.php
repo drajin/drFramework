@@ -15,6 +15,9 @@
                     <a class="nav-link" href="about">about</a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link" href="twitter">twitter</a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link" href="blog">Blog</a>
                 </li>
                 <li class="nav-item">

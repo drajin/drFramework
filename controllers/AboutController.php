@@ -13,5 +13,10 @@ class AboutController extends Controller
         return $this->render('about');
     }
 
+    public function twitter() {
+
+        return $this->render('twitter');
+    }
+
 
 }
