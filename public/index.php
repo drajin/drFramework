@@ -2,7 +2,7 @@
 
 require_once __DIR__ . '/../vendor/autoload.php';
 $config = require(__DIR__ . '/../config/config.php');
-$configApi = require(__DIR__ . '/../config/config_api.php');
+//$configApi = require(__DIR__ . '/../config/config_api.php'); TODO what do with this
 
 use app\core\Application;
 use app\controllers\HomeController;
@@ -12,6 +12,7 @@ use app\controllers\UserController;
 use app\controllers\BlogController;
 use app\controllers\PostsController;
 use app\controllers\CommentsController;
+use app\controllers\TwitterController;
 
 //App root
 define('ROOT', dirname(dirname(__FILE__)));
@@ -43,6 +44,7 @@ $app->router->get('/twitter', [AboutController::class, 'twitter']);
 //Blog
 $app->router->get('/blog', [BlogController::class, 'index']);
 $app->router->get('/show', [BlogController::class, 'show']);
+$app->router->post('/tweet', [TwitterController::class, 'tweet_sbm']);
 
 //Comments Frontend
 $app->router->post('/show', [CommentsController::class, 'comment_sbm']);

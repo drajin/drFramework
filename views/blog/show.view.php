@@ -58,41 +58,67 @@
 
 
 <!--                Comment Form-->
-                <form action="/show?id=<?php echo $post->id; ?>" class="row" method="post">
-                    <div class="col-md-6">
+            <form action="/show?id=<?php echo $post->id; ?>" class="row" method="post">
+                <div class="col-md-6">
+                    <input type="text"  placeholder="First Name" name="first_name" value="<?php echo (!empty($comment_new->first_name)) ? $comment_new->first_name : ''; ?>"
+                           class="form-control mb-3 <?php echo (!empty($comment_new->first_name_err)) ? 'is-invalid' : '' ?>">
+                    <div class="invalid-feedback">
+                        <?php echo (!empty($comment_new->first_name_err)) ? $comment_new->first_name_err : '' ?>
+                    </div>
+                    <input type="text"  placeholder="Last Name" name="last_name" value="<?php echo (!empty($comment_new->last_name)) ? $comment_new->last_name : ''; ?>"
+                           class="form-control mb-3 <?php echo (!empty($comment_new->last_name_err)) ? 'is-invalid' : '' ?>">
+                    <div class="invalid-feedback">
+                        <?php echo (!empty($comment_new->last_name_err)) ? $comment_new->last_name_err : '' ?>
+                    </div>
+                    <input type="email"  placeholder="Email *" name="email" value="<?php echo (!empty($comment_new->email)) ? $comment_new->email : ''; ?>"
+                           class="form-control mb-3 <?php echo (!empty($comment_new->email_err)) ? 'is-invalid' : '' ?>">
+                    <div class="invalid-feedback">
+                        <?php echo (!empty($comment_new->email_err)) ? $comment_new->email_err : '' ?>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <textarea name="body" id="body" placeholder="Message" class="form-control mb-4
+                    <?php echo (!empty($comment_new->body_err)) ? 'is-invalid' : ''; ?>"></textarea>
+                    <div class="invalid-feedback">
+                        <?php echo (!empty($comment_new->body_err)) ? $comment_new->body_err : '' ?>
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100">Send Message</button>
+                </div>
 
+            </form>
+                <br>
+<!--                Twitter app-->
+                <h4 class="font-weight-bold mb-3 border-bottom pb-3">Using Twitter? share your tweets  here!</h4>
 
-
-                        <input type="text"  placeholder="First Name" name="first_name" value="<?php echo (!empty($comment_new->first_name)) ? $comment_new->first_name : ''; ?>"
-                               class="form-control mb-3 <?php echo (!empty($comment_new->first_name_err)) ? 'is-invalid' : '' ?>">
-                        <div class="invalid-feedback">
-                            <?php echo (!empty($comment_new->first_name_err)) ? $comment_new->first_name_err : '' ?>
-                        </div>
-                        <input type="text"  placeholder="Last Name" name="last_name" value="<?php echo (!empty($comment_new->last_name)) ? $comment_new->last_name : ''; ?>"
-                               class="form-control mb-3 <?php echo (!empty($comment_new->last_name_err)) ? 'is-invalid' : '' ?>">
-                        <div class="invalid-feedback">
-                            <?php echo (!empty($comment_new->last_name_err)) ? $comment_new->last_name_err : '' ?>
-                        </div>
-                        <input type="email"  placeholder="Email *" name="email" value="<?php echo (!empty($comment_new->email)) ? $comment_new->email : ''; ?>"
-                               class="form-control mb-3 <?php echo (!empty($comment_new->email_err)) ? 'is-invalid' : '' ?>">
-                        <div class="invalid-feedback">
-                            <?php echo (!empty($comment_new->email_err)) ? $comment_new->email_err : '' ?>
+                <div class="col-md-6">
+                    <div class="posttweetcontainer">
+                        <img class="posttweetprofimg" src="http://3.bp.blogspot.com/-JCYefwq__2U/TxCfC3s1ZpI/AAAAAAAAKcM/u5mw7qPAL0w/s300-c/Camilla-Belle-6.jpg">
+                        <div class="ml56px">
+                            <form action="tweet?id=<?php echo $post->id; ?>"  method="post">
+                                <div class="posttweettacontainer">
+                                    <textarea name="status" id="status" placeholder="What's happening?" class="posttweetta form-control
+                                    <?php echo (!empty($tweet->status_err)) ? 'is-invalid' : ''; ?>"></textarea>
+                                    <div class="invalid-feedback">
+                                        <?php echo (!empty($tweet->status_err)) ? $tweet->status_err : '' ?>
+                                    </div>
+<!--                                  fali javascript-->
+<!--                                    <div class="posttweetcountcont">-->
+<!--                                        <span class="posttweetcount"><span id="totalchars">0</span>/250</span>-->
+<!--                                    </div>-->
+                                </div>
+                                <div class="posttweetbutcont">
+                                    <button type="submit" id="posttweetbut" class="posttweetbut">Tweet</button>
+                                </div>
+                            </form>
                         </div>
                     </div>
-                    <div class="col-md-6">
-                        <textarea name="body" id="body" placeholder="Message" class="form-control mb-4
-                        <?php echo (!empty($comment_new->body_err)) ? 'is-invalid' : ''; ?>"></textarea>
-                        <div class="invalid-feedback">
-                            <?php echo (!empty($comment_new->body_err)) ? $comment_new->body_err : '' ?>
-                        </div>
-                        <button type="submit" class="btn btn-primary w-100">Send Message</button>
-                    </div>
-
-                </form>
-
+                </div>
+<!--                original kraj-->
             </div>
         </div>
     </div>
+
+
 </section>
 
 <!-- blog -->

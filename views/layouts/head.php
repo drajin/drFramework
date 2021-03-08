@@ -18,6 +18,8 @@
     <link rel="stylesheet" href="/../../plugins/slick/slick.css">
     <!-- themefy-icon -->
     <link rel="stylesheet" href="/../../plugins/themify-icons/themify-icons.css">
+    <!-- twitter stylesheet-->
+    <link href="/../../css/tweets.css" rel="stylesheet">
 
     <!-- Main Stylesheet -->
     <link href="/../../css/style.css" rel="stylesheet">
@@ -25,6 +27,15 @@
     <!--Favicon-->
     <link rel="shortcut icon" href="/../../images/favicon.ico" type="image/x-icon">
     <link rel="icon" href="/../../images/favicon.ico" type="image/x-icon">
+
+
+
+
+    <script
+        src="https://code.jquery.com/jquery-3.2.1.min.js"
+        integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+        crossorigin="anonymous"></script>
+    <script src="profile.js"></script>
 
 </head>
 

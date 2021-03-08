@@ -2,6 +2,7 @@
 
 
 namespace app\controllers;
+use app\core\Request;
 use app\models\Post;
 use app\models\User;  //accessing method thought Post?
 use app\core\Application;
@@ -60,6 +61,12 @@ class BlogController extends Controller
         ];
 
         return $this->render('blog/show', $params);
+    }
+
+    public function tweet(Request $request)
+    {
+        var_dump($request);
+        exit;
     }
 
 
