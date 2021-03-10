@@ -19,6 +19,7 @@
     <!-- themefy-icon -->
     <link rel="stylesheet" href="/../../plugins/themify-icons/themify-icons.css">
 
+
     <!-- Main Stylesheet -->
     <link href="/../../css/style.css" rel="stylesheet">
 

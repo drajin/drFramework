@@ -44,9 +44,10 @@
                     <?php foreach($comments as $comment) : ?>
                     <div class="media border-bottom py-4">
                         <div class="media-body">
-                            <h5 class="mt-0"><?php echo $comment->first_name . ' '. $comment->last_name; ?></h5>
-                            <p><?php echo $comment->created_at; ?></p>
+                            <h5 class="mt-0"><?php echo $comment->name; ?></h5>
                             <p><?php echo $comment->body; ?></p>
+                            <p><?php echo $comment->created_at; ?></p>
+
 
 
                         </div>
@@ -63,15 +64,10 @@
 
 
 
-                        <input type="text"  placeholder="First Name" name="first_name" value="<?php echo (!empty($comment_new->first_name)) ? $comment_new->first_name : ''; ?>"
-                               class="form-control mb-3 <?php echo (!empty($comment_new->first_name_err)) ? 'is-invalid' : '' ?>">
+                        <input type="text"  placeholder="Full Name" name="name" value="<?php echo (!empty($comment_new->name)) ? $comment_new->name : ''; ?>"
+                               class="form-control mb-3 <?php echo (!empty($comment_new->name_err)) ? 'is-invalid' : '' ?>">
                         <div class="invalid-feedback">
-                            <?php echo (!empty($comment_new->first_name_err)) ? $comment_new->first_name_err : '' ?>
-                        </div>
-                        <input type="text"  placeholder="Last Name" name="last_name" value="<?php echo (!empty($comment_new->last_name)) ? $comment_new->last_name : ''; ?>"
-                               class="form-control mb-3 <?php echo (!empty($comment_new->last_name_err)) ? 'is-invalid' : '' ?>">
-                        <div class="invalid-feedback">
-                            <?php echo (!empty($comment_new->last_name_err)) ? $comment_new->last_name_err : '' ?>
+                            <?php echo (!empty($comment_new->name_err)) ? $comment_new->name_err : '' ?>
                         </div>
                         <input type="email"  placeholder="Email *" name="email" value="<?php echo (!empty($comment_new->email)) ? $comment_new->email : ''; ?>"
                                class="form-control mb-3 <?php echo (!empty($comment_new->email_err)) ? 'is-invalid' : '' ?>">

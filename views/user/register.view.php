@@ -47,11 +47,16 @@
                                 <?php echo (!empty($pass_confirm_err)) ? $pass_confirm_err : '' ; ?>
                             </div>
                         </div>
-                        <div class="col-lg-6 col-10 ">
+                        <div class="col-lg-6 col-10">
                             <button class="btn btn-primary w-100">Submit</button>
                         </div>
                         <div class="col-lg-6 col-10">
                             <a href="login" class="btn btn-light btn-block">Have an account? Login</a>
+                        </div>
+                        <div class="section-action-container">
+                            <div class="d-grid gap-2">
+                                <a class="btn btn-tw" href="#" role="button">Login with Twitter (PHP)</a>
+                            </div>
                         </div>
                     </form>
                 </div>

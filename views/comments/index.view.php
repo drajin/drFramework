@@ -46,7 +46,7 @@
                     <tr>
                         <td><?php echo $comment->title ?></td>
                         <td><?php echo implode(' ', array_slice(explode(' ', $comment->body), 0, 3)); ?></td>
-                        <td><?php echo $comment->last_name ?></td>
+                        <td><?php echo $comment->name ?></td>
                         <td><?php echo $comment->created_at ?></td>
                         <td>
                             <form method="post" action="/delete_comment?id=<?php echo $comment->commentId ?>" >

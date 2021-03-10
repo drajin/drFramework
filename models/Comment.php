@@ -9,21 +9,18 @@ use app\core\Application;
 class Comment extends Model
 {
     public string $post_id;
-    public string $first_name;
-    public string $last_name;
+    public string $name;
     public string $email;
     public string $body;
-    public string $first_name_err;
-    public string $last_name_err;
+    public string $name_err;
     public string $email_err;
     public string $body_err;
 
     public function create()
     {
-        Application::$app->db->query('INSERT INTO comments (post_id, first_name, last_name, email, body ) VALUES (:post_id, :first_name, :last_name, :email, :body)');
+        Application::$app->db->query('INSERT INTO comments (post_id, name, email, body ) VALUES (:post_id, :name, :email, :body)');
         Application::$app->db->bind('post_id', $this->post_id);
-        Application::$app->db->bind(':first_name', $this->first_name);
-        Application::$app->db->bind(':last_name', $this->last_name);
+        Application::$app->db->bind(':name', $this->name);
         Application::$app->db->bind(':email', $this->email);
         Application::$app->db->bind(':body', $this->body);
 
@@ -49,12 +46,8 @@ class Comment extends Model
     public function validateComment()
     {
         // Validate First Name
-        if(!isset($this->first_name) || trim($this->first_name) === '') {
-            $this->first_name_err = 'First Name can\'t be empty';
-        }
-        // Validate Last Name
-        if(!isset($this->last_name) || trim($this->last_name) === '') {
-            $this->last_name_err = 'Last Name can\'t be empty.';
+        if(!isset($this->name) || trim($this->name) === '') {
+            $this->name_err = 'Full Name can\'t be empty';
         }
 
         // Validate Email
@@ -68,7 +61,7 @@ class Comment extends Model
         }
 
         // Make sure there are no errors
-        if(empty($this->first_name_err) && empty($this->last_name_err) && empty($this->email_err) && empty($this->body_err)) {
+        if(empty($this->name_err) && empty($this->email_err) && empty($this->body_err)) {
             return true;
         } else {
             return false;
@@ -76,7 +69,7 @@ class Comment extends Model
     }
 
     public function getComments() {
-        Application::$app->db->query('SELECT comments.last_name, comments.body, comments.created_at, posts.title,
+        Application::$app->db->query('SELECT comments.name, comments.body, comments.created_at, posts.title,
                                         comments.id as commentId,
                                         posts.id as postId,
                                         comments.created_at as commentCreated,

@@ -61,6 +61,8 @@ class CommentsController extends Controller
         if ($request->isPost()) {
             $this->commentNewModel->loadData($request->getBody());
             $this->commentNewModel->validateComment();
+//            var_dump($this->commentNewModel);
+//            exit;
             if ($this->commentNewModel->validateComment() === true) {
                     $this->commentNewModel->create();
                     Application::$app->session->setFlashMsg('success', 'Thanks for your comment!');

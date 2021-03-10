@@ -44,6 +44,11 @@
                         <div class="col-lg-6 col-10">
                             <a href="register" class="btn btn-light btn-block">No account? Register</a>
                         </div>
+                        <div class="section-action-container">
+                            <div class="d-grid gap-2">
+                                <a class="btn btn-tw" href="#" role="button">Login with Twitter (PHP)</a>
+                            </div>
+                        </div>
                     </form>
                 </div>
             </div>
