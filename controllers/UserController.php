@@ -6,8 +6,8 @@ namespace app\controllers;
 
 use app\core\Application;
 use app\core\Request;
-use app\models\Model;
 use app\models\User;
+
 
 
 
@@ -20,6 +20,7 @@ class UserController extends Controller
     public function __construct()
     {
 //        $this->postModel = new Post();
+
     }
 
     public function register()
@@ -53,8 +54,15 @@ class UserController extends Controller
 
     public function login()
     {
+        if(isset($_SESSION['user_id'])) {
+            Application::$app->response->redirect('/dashboard');
+        }
+        $user_model = new User();
         $this->setLayout('login');
-        return $this->render('user/login');
+        $params = [
+            'user_model' => $user_model
+        ];
+        return $this->render('user/login', $params);
     }
 
     public function login_sbm(Request $request)
@@ -81,6 +89,32 @@ class UserController extends Controller
         unset($_SESSION['user_name']);
         session_destroy();
         Application::$app->response->redirect('login');
+    }
+
+    function google() {
+        $client = new Google_Client();
+        $client->setClientId(GOOGLE_CLIENT_ID);
+        $client->setClientSecret(GOOGLE_CLIENT_SECRET);
+        $client->setRedirectUri('http://localhost:8080/login');
+        $client->addScope("email");
+        $client->addScope("profile");
+        if (isset($_GET['code'])) {
+            $token = $client->fetchAccessTokenWithAuthCode($_GET['code']);
+            $client->setAccessToken($token['access_token']);
+
+            // get profile info
+            $google_oauth = new Google_Service_Oauth2($client);
+            $google_account_info = $google_oauth->userinfo->get();
+            echo ('<pre>');
+            var_dump($google_account_info);
+            echo ('</pre>');
+//        $email =  $google_account_info->email;
+//        $name =  $google_account_info->name;
+
+            // now you can use this profile info to create account in your website and make user logged in.
+        } else {
+            return $client->createAuthUrl();
+        }
     }
 
 

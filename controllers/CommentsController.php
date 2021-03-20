@@ -11,11 +11,17 @@ use app\core\Application;
 
 class CommentsController extends Controller
 {
-    //TODO flash messaging
+    //TODO Flash messaging
     //TODO Twitter API
+    //TODO Google API
+    //TODO Facebook API
+    //TODO Register all apis sign ins
+    //TODO Make logout working
+    //TODO Refactor
     //TODO Is logged in?
     //TODO Add Content
     //TODO Make more secure
+    //TODO Make installable
 
     public Post $postModel;
     public User $userModel;

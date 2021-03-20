@@ -55,6 +55,11 @@
                         </div>
                         <div class="section-action-container">
                             <div class="d-grid gap-2">
+                                <a class="btn btn-tw" href="#" role="button">Login with Google (PHP)</a>
+                            </div>
+                        </div>
+                        <div class="section-action-container">
+                            <div class="d-grid gap-2">
                                 <a class="btn btn-tw" href="#" role="button">Login with Twitter (PHP)</a>
                             </div>
                         </div>

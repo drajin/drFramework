@@ -2,6 +2,7 @@
 
 require_once __DIR__ . '/../vendor/autoload.php';
 $config = require(__DIR__ . '/../config/config.php');
+$config_tw = require(__DIR__ . '/../config/config_api.php');
 
 use app\core\Application;
 use app\controllers\HomeController;

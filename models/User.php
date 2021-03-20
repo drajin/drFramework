@@ -4,6 +4,8 @@
 namespace app\models;
 use app\core\Database;
 use app\core\Application;
+use \Google_Client;
+use \Google_Service_Oauth2;
 
 
 class User extends Model
@@ -20,6 +22,12 @@ class User extends Model
     public string $email_err;
     public string $pass_err;
     public string $pass_confirm_err;
+    public Google_Client $client;
+
+    public function __construct()
+    {
+
+    }
 
 
     public function validation_register()
@@ -147,6 +155,20 @@ class User extends Model
               $_SESSION['user_name'] = $user->name;
               Application::$app->response->redirect('/');
     }
+
+    public function generatePassword($length){
+    		$chars = "vwxyzABCD02789";
+    		$code = "";
+    		$clen = strlen($chars) - 1;
+    		while (strlen($code) < $length){
+    			$code .= $chars[mt_rand(0,$clen)];
+    		}
+    		return $code;
+        }
+
+
+
+
 
 
 
