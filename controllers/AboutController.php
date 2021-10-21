@@ -1,10 +1,10 @@
 <?php
 
 
-namespace app\controllers;
+namespace framework\controllers;
 
 
-use app\core\Application;
+use framework\core\Application;
 
 class AboutController extends Controller
 {

@@ -10,7 +10,7 @@
     <!-- End Page Header -->
 
 
-<?php use app\core\Application; ?>
+<?php use framework\core\Application; ?>
 
     <!--Flash messages-->
 
@@ -76,7 +76,7 @@
     <div class="col">
         <div class="card card-small overflow-hidden mb-4">
             <div class="card-header bg-dark">
-                <h6 class="m-0 text-white">Remove your Comments</h6>
+                <h6 class="m-0 text-white">Remove Comments</h6>
             </div>
             <div class="card-body p-0 pb-3 bg-dark text-center">
                 <table class="table table-dark mb-0">

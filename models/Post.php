@@ -1,10 +1,10 @@
 <?php
 
 
-namespace app\models;
-use app\core\Database;
-use app\core\Application;
-use app\core\Session;
+namespace framework\models;
+use framework\core\Database;
+use framework\core\Application;
+use framework\core\Session;
 
 
 class Post extends Model

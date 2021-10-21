@@ -3,7 +3,7 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-11 mx-auto">
-                <h1 class="text-white font-tertiary">Moin! Ich bin Deyan <br> Jobsuchender</h1>
+                <h1 class="text-white font-tertiary">Moin moin! Ich bin Dejan <br> Webentwickler</h1>
 
             </div>
         </div>
@@ -50,10 +50,7 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-10 mx-auto text-center">
-                <p class="font-secondary paragraph-lg text-dark">Herzlich willkommen, in meinem Blog. Auf diese Seite kann man
-                    über mich ein bischen lernenen.Coole Sache über
-                    mich lesen und general ein Eindruck bekomen, was ich mag und was ich zu tun kann. Und was richtig geil ist,
-                    man kann direkt von meinem Blog auf sein Twetter Posten! Teil mal weiter wie cool ist das!</p>
+                <p class="font-secondary paragraph-lg text-dark">Herzlich Willkommen auf meinem Blog. Auf diese Seite kann man mich ein bisschen kenne leinenen. Momentan befinden Sie sich auf meine Homepage hinter dem mein Eigenen PHP Framework läuft. Wie cool ist das denn? Bald werde ich auch möglich nur mit Ihrem Google, Facebook oder Twitter Konto anzumelden und einfach Posten! Viel Spaß!</p>
                 <a href="about.html" class="btn btn-transparent">know more</a>
             </div>
         </div>
@@ -61,7 +58,7 @@
 </section>
 <!-- /about -->
 <div class="content">
-<h1>This is the index page!</h1>
+<h3>This is the index page!</h3>
 </div>
 
 

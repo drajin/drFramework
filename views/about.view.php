@@ -104,5 +104,5 @@
 <!-- /contact -->
 
 <div class="content">
-    <h1>About me</h1>
+    <h3>About me</h3>
 </div>

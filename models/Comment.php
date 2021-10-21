@@ -1,10 +1,10 @@
 <?php
 
 
-namespace app\models;
+namespace framework\models;
 
 
-use app\core\Application;
+use framework\core\Application;
 
 class Comment extends Model
 {

@@ -1,12 +1,12 @@
 <?php
 
 
-namespace app\controllers;
+namespace framework\controllers;
 
 
-use app\core\Application;
-use app\core\Request;
-use app\models\User;
+use framework\core\Application;
+use framework\core\Request;
+use framework\models\User;
 
 
 

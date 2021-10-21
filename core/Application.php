@@ -1,7 +1,7 @@
 <?php
 
 
-namespace app\core;
+namespace framework\core;
 
 
 class Application

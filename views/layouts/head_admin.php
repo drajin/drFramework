@@ -1,4 +1,4 @@
-<?php use app\core\Application; ?>
+<?php use framework\core\Application; ?>
 
 <!doctype html>
 <html class="no-js h-100" lang="en">

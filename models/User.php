@@ -1,9 +1,9 @@
 <?php
 
 
-namespace app\models;
-use app\core\Database;
-use app\core\Application;
+namespace framework\models;
+use framework\core\Database;
+use framework\core\Application;
 use \Google_Client;
 use \Google_Service_Oauth2;
 

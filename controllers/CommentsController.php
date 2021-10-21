@@ -1,12 +1,12 @@
 <?php
 
 
-namespace app\controllers;
-use app\core\Request;
-use app\models\Comment;
-use app\models\Post;
-use app\models\User;
-use app\core\Application;
+namespace framework\controllers;
+use framework\core\Request;
+use framework\models\Comment;
+use framework\models\Post;
+use framework\models\User;
+use framework\core\Application;
 
 
 class CommentsController extends Controller

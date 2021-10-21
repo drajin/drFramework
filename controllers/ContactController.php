@@ -1,10 +1,10 @@
 <?php
 
 
-namespace app\controllers;
+namespace framework\controllers;
 
-use app\core\Application;
-use app\core\Request;
+use framework\core\Application;
+use framework\core\Request;
 
 class ContactController extends Controller
 {

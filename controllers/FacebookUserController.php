@@ -1,7 +1,7 @@
 <?php
 
 
-namespace app\controllers;
+namespace framework\controllers;
 use Facebook\Facebook;
 
 

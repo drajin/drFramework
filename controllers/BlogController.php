@@ -1,11 +1,11 @@
 <?php
 
 
-namespace app\controllers;
-use app\models\Post;
-use app\models\User;  //accessing method thought Post?
-use app\core\Application;
-use app\models\Comment;
+namespace framework\controllers;
+use framework\models\Post;
+use framework\models\User;  //accessing method thought Post?
+use framework\core\Application;
+use framework\models\Comment;
 
 
 class BlogController extends Controller

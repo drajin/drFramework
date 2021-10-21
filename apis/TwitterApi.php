@@ -1,6 +1,6 @@
 <?php
 
-namespace app\apis;
+namespace framework\apis;
 
     class TwitterApi{
 

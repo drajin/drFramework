@@ -4,14 +4,14 @@ require_once __DIR__ . '/../vendor/autoload.php';
 $config = require(__DIR__ . '/../config/config.php');
 $config_tw = require(__DIR__ . '/../config/config_api.php');
 
-use app\core\Application;
-use app\controllers\HomeController;
-use app\controllers\ContactController;
-use app\controllers\AboutController;
-use app\controllers\UserController;
-use app\controllers\BlogController;
-use app\controllers\PostsController;
-use app\controllers\CommentsController;
+use framework\core\Application;
+use framework\controllers\HomeController;
+use framework\controllers\ContactController;
+use framework\controllers\AboutController;
+use framework\controllers\UserController;
+use framework\controllers\BlogController;
+use framework\controllers\PostsController;
+use framework\controllers\CommentsController;
 
 //App root
 define('ROOT', dirname(dirname(__FILE__)));

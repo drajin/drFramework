@@ -10,7 +10,7 @@
 <!-- End Page Header -->
 
 
-    <?php use app\core\Application; ?>
+    <?php use framework\core\Application; ?>
     <!--Flash messages-->
     <div class="container">
         <div class="alert success">

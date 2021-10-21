@@ -1,12 +1,12 @@
-<?php  use app\core\Application; ?>
-<?php use app\controllers\FacebookUserController;
+<?php  use framework\core\Application; ?>
+<?php use framework\controllers\FacebookUserController;
 $facebookLogin = new FacebookUserController;
 
 ?>
 <?php
 if(isset($_SESSION['user_email_address'])) {
     echo $_SESSION['user_email_address'];
-} else 'Not';
+} else echo 'Not';
 //$client = new Google_Client();
 //$client->setClientId(GOOGLE_CLIENT_ID);
 //$client->setClientSecret(GOOGLE_CLIENT_SECRET);
@@ -118,17 +118,17 @@ if(isset($_SESSION['user_email_address'])) {
 <!--                        </div>-->
                         <div class="section-action-container">
                             <div class="d-grid gap-2">
-                                <a class="btn btn-gm" href="<?php //echo googleUser($client); ?>" role="button">Login with Google (PHP)</a>
+                                <a class="btn btn-gm" href="<?php //echo googleUser($client); ?>" role="button">Login with Google</a>
                             </div>
                         </div>
                         <div class="section-action-container">
                             <div class="d-grid gap-2">
-                                <a class="btn btn-fb" href="<?php echo $facebookLogin->facebookUser(); ?>" role="button">Login with Facebook (PHP)</a>
+                                <a class="btn btn-fb" href="<?php echo $facebookLogin->facebookUser(); ?>" role="button">Login with Facebook</a>
                             </div>
                         </div>
                         <div class="section-action-container">
                             <div class="d-grid gap-2">
-                                <a class="btn btn-tw" href="?>" role="button">Login with Twitter (PHP)</a>
+                                <a class="btn btn-tw" href="?>" role="button">Login with Twitter</a>
                             </div>
                         </div>
                         <div class="section-action-container">

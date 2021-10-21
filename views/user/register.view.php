@@ -1,4 +1,4 @@
-<?php  use app\core\Application; ?>
+<?php  use framework\core\Application; ?>
 
 <!--Flash messages-->
 <div class="container">
@@ -52,16 +52,6 @@
                         </div>
                         <div class="col-lg-6 col-10">
                             <a href="login" class="btn btn-light btn-block">Have an account? Login</a>
-                        </div>
-                        <div class="section-action-container">
-                            <div class="d-grid gap-2">
-                                <a class="btn btn-tw" href="#" role="button">Login with Google (PHP)</a>
-                            </div>
-                        </div>
-                        <div class="section-action-container">
-                            <div class="d-grid gap-2">
-                                <a class="btn btn-tw" href="#" role="button">Login with Twitter (PHP)</a>
-                            </div>
                         </div>
                     </form>
                 </div>
