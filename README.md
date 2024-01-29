@@ -1,5 +1,3 @@
-![Imgur](https://i.imgur.com/G89UN6P.jpg)
-
 ## Table of contents
 * [General info](#general-info)
 * [Features](#Featurs)
